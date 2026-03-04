@@ -1,0 +1,15 @@
+name: Deploy Landing Page
+on:
+  push:
+    branches: [ main ]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: crazy-max/ghaction-github-pages@v5.0.0
+        with:
+          target_branch: gh-pages
+          build_dir: .
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
